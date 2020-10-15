@@ -4,6 +4,12 @@ const express = require("express");
 // Importar habdlebars como template engine
 const exphbs = require("express-handlebars");
 
+// Importar body parser que nos permite acceder al cuerpo de la peticion HTTP
+const bodyParser = require("body-parser");
+
+// Importar la funcion del calculo del ejercicio
+const { calcularEjercicio }  = require("./calculoEjercicio");
+
 // Crear un servidor express
 const app = express();
 
@@ -12,9 +18,21 @@ app.engine("hbs", exphbs({ defaultLayout: "main", extname: "hbs"}));
 
 app.set("view engine", "hbs");
 
-// Crear una ruta
+// Habilitar body parser para leer los datos del cuerpo de peticiones POST
+app.use(bodyParser.urlencoded({ extended: true}));
+
+// Crear una ruta para /
 app.get("/", (req, res, next) => {
     res. render("formulario_examen");
+});
+
+app.post("/ejercicio", (req, res, next) => {
+    // Asignacion por destructing
+    const { param1, param2, param3} = req.body;
+
+    calcularEjercicio(param1, param2, param3);
+
+    res.render("resultado_examen");
 });
 
 // Inicializar puerto
