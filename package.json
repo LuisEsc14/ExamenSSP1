@@ -1,0 +1,26 @@
+{
+  "name": "examenss",
+  "version": "1.0.0",
+  "description": "Examen 1 parcial Seminario de Software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisEsc14/ExamenSSP1.git"
+  },
+  "keywords": [
+    "examen",
+    "node",
+    "express",
+    "handlebars"
+  ],
+  "author": "Luis Escobar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuisEsc14/ExamenSSP1/issues"
+  },
+  "homepage": "https://github.com/LuisEsc14/ExamenSSP1#readme"
+}
