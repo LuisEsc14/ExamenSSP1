@@ -28,11 +28,11 @@ app.get("/", (req, res, next) => {
 
 app.post("/ejercicio", (req, res, next) => {
     // Asignacion por destructing
-    const { param1, param2, param3} = req.body;
+    const { capital, tazaInteres, plazo} = req.body;
 
-    calcularEjercicio(param1, param2, param3);
+    const amortizacion = calcularEjercicio(capital, tazaInteres, plazo);
 
-    res.render("resultado_examen");
+    res.render("resultado_examen", { amortizacion });
 });
 
 // Inicializar puerto
